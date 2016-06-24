@@ -63,11 +63,16 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
   UIWindow *window = [[UIApplication sharedApplication] keyWindow];
 
-  // If I present the UIAlertController by presentViewController
+  // In Xcode 7.2 if animated is set to YES,
+  // when I present the UIAlertController by presentViewController
   // then the UIAlertController is freezed
   // not responding to any touch events
+  // By setting animated to NO, it is resolved
+  
+  // But in Xcode 7.3, this does not work anymore
+  
   [[window rootViewController] presentViewController:alert
-                                            animated:YES
+                                            animated:NO
                                           completion:nil];
   // If I change the above line to
 
